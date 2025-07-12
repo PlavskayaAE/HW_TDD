@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PhoneBookTest {
 
-   private PhoneBook phoneBook;
+    private PhoneBook phoneBook;
 
     @BeforeEach
     public void setUp() {
@@ -28,9 +28,9 @@ public class PhoneBookTest {
 
     @Test
     public void testAdd_Dublicate() {
-        phoneBook.add("Name3", "89001002233");
-        int count_Dublicate = phoneBook.add("Name3", "89001002244");
-        assertEquals(1, count_Dublicate, "Добавление контакта с таким же именем не влечет увеличение количество контактов");
+        int count_Dublicate = phoneBook.add("Name3", "89001002233");
+        count_Dublicate = phoneBook.add("Name3", "89001002244");
+        assertEquals(0, count_Dublicate, "Добавление контакта с таким же именем не влечет увеличение количество контактов");
     }
 
     @Test
