@@ -16,8 +16,8 @@ public class PhoneBook {
             if (number.length() != 11) {
                 System.out.println("Ошибка! Номер должен состоять из 11 символов!");
             } else {
-                if (contactsKeyIsName.containsKey(name)) {
-                    System.out.println("Ошибка! Контакт с таким именем уже существует!");
+                if (contactsKeyIsName.containsKey(name) || contactsKeyIsNumber.containsKey(number)) {
+                    System.out.println("Ошибка! Такой контакт уже существует!");
                 } else {
                     contactsKeyIsName.put(name, number);
                     contactsKeyIsNumber.put(number, name);

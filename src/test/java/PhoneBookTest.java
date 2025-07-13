@@ -31,6 +31,7 @@ public class PhoneBookTest {
     public void testAdd_Dublicate() {
         int count_Dublicate = phoneBook.add("Name3", "89001002233");
         count_Dublicate = phoneBook.add("Name3", "89001002244");
+        count_Dublicate = phoneBook.add("Name99", "89001002233");
         assertEquals(1, count_Dublicate, "Добавление контакта с таким же именем не влечет увеличение количество контактов");
     }
 
