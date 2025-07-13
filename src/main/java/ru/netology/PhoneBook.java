@@ -4,7 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class PhoneBook {
-    private static Map<String, String> contacts = new HashMap<>();
+    private static Map<String, String> contactsKeyIsName = new HashMap<>();
+    private static Map<String, String> contactsKeyIsNumber = new HashMap<>();
 
     public static int add(String name, String number) {
         if (name == null || number == null || name.isEmpty() || number.isEmpty()) {
@@ -13,20 +14,21 @@ public class PhoneBook {
             if (number.length() != 11) {
                 System.out.println("Ошибка! Номер должен состоять из 11 символов!");
             } else {
-                if (contacts.containsKey(name)) {
+                if (contactsKeyIsName.containsKey(name)) {
                     System.out.println("Ошибка! Контакт с таким именем уже существует!");
                 } else {
-                    contacts.put(name, number);
+                    contactsKeyIsName.put(name, number);
+                    contactsKeyIsNumber.put(number, name);
                 }
             }
         }
 
-        return contacts.size();
+        return contactsKeyIsName.size();
 
     }
 
     public static String findByNumber(String value) {
-        return null;
+        return contactsKeyIsNumber.get(value);
     }
 
 }
