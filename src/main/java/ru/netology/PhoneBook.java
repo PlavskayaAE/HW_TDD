@@ -27,8 +27,12 @@ public class PhoneBook {
 
     }
 
-    public static String findByNumber(String value) {
-        return contactsKeyIsNumber.get(value);
+    public static String findByNumber(String number) {
+        return contactsKeyIsNumber.get(number);
+    }
+
+    public static String findByName(String name){
+        return null;
     }
 
 }

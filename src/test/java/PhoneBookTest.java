@@ -74,8 +74,19 @@ public class PhoneBookTest {
         assertNull(result_UnknownNumber, "При введении номера, отсутствующего в книге, возвращается null");
     }
 
+    @Test
+    public void testFindByName_ok() {
+        phoneBook.add("Name", "89001002233");
+        String result_FindByName = phoneBook.findByName("Name");
+        String expected = "89001002233";
+        assertEquals(expected, result_FindByName);
+    }
 
-
-
+    @Test
+    public void testFindByName_UnknownName() {
+        phoneBook.add("Name33", "89123336699");
+        String result_UnknownName = phoneBook.findByName("Name789");
+        assertNull(result_UnknownName);
+    }
 
 }
