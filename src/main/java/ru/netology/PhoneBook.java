@@ -31,8 +31,12 @@ public class PhoneBook {
         return contactsKeyIsNumber.get(number);
     }
 
-    public static String findByName(String name){
+    public static String findByName(String name) {
         return contactsKeyIsName.get(name);
     }
 
+
+    public static String printAllNames() {
+        return null;
+    }
 }

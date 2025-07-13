@@ -89,4 +89,35 @@ public class PhoneBookTest {
         assertNull(result_UnknownName);
     }
 
+    @Test
+    public void testPrintAllNames_Eng() {
+        phoneBook.add("AName", "12345678900");
+        phoneBook.add("CName", "77777777777");
+        phoneBook.add("DName", "99999999999");
+        phoneBook.add("BName", "89565696363");
+
+        String result_printAllNames = phoneBook.printAllNames();
+        String expected = "[AName, BName, CName, DName]";
+        assertEquals(expected, result_printAllNames);
+    }
+
+    @Test
+    public void testPrintAllNames_Ru() {
+        phoneBook.add("Маша", "12345678900");
+        phoneBook.add("Настя", "77777777777");
+        phoneBook.add("Дарья", "99999999999");
+        phoneBook.add("Филипп", "89565696363");
+
+        String result_printAllNames = phoneBook.printAllNames();
+        String expected = "[Дарья, Маша, Настя, Филипп]";
+        assertEquals(expected, result_printAllNames);
+    }
+
+    @Test
+    public void testPrintAllNames_empty() {
+        String result_printAllNames = phoneBook.printAllNames();
+        String expected = "[]";
+        assertEquals(expected, result_printAllNames);
+    }
+
 }
