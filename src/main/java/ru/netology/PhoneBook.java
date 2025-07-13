@@ -32,7 +32,7 @@ public class PhoneBook {
     }
 
     public static String findByName(String name){
-        return null;
+        return contactsKeyIsName.get(name);
     }
 
 }
