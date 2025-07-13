@@ -3,6 +3,7 @@ import org.junit.jupiter.api.Test;
 import ru.netology.PhoneBook;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNull;
 
 public class PhoneBookTest {
 
@@ -30,7 +31,7 @@ public class PhoneBookTest {
     public void testAdd_Dublicate() {
         int count_Dublicate = phoneBook.add("Name3", "89001002233");
         count_Dublicate = phoneBook.add("Name3", "89001002244");
-        assertEquals(0, count_Dublicate, "Добавление контакта с таким же именем не влечет увеличение количество контактов");
+        assertEquals(1, count_Dublicate, "Добавление контакта с таким же именем не влечет увеличение количество контактов");
     }
 
     @Test
@@ -57,4 +58,24 @@ public class PhoneBookTest {
         assertEquals(0, countEmptyName);
         assertEquals(0, countEmptyNumber);
     }
+
+    @Test
+    public void testFindByNumber_ok() {
+        phoneBook.add("Саша", "89112223344");
+        String result_FindByNumber = phoneBook.findByNumber("89112223344");
+        String expected = "Саша";
+        assertEquals(expected, result_FindByNumber, "Поиск по номеру телефона дает имя контакта");
+    }
+
+    @Test
+    public void testFindByNumber_UnknownNumber() {
+        phoneBook.add("Паша", "89001002233");
+        String result_UnknownNumber = phoneBook.findByNumber("8900000000");
+        assertNull(result_UnknownNumber, "При введении номера, отсутствующего в книге, возвращается null");
+    }
+
+
+
+
+
 }

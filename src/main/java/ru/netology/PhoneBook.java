@@ -5,10 +5,9 @@ import java.util.Map;
 
 public class PhoneBook {
     private static Map<String, String> contacts = new HashMap<>();
-    private static int size;
 
     public static int add(String name, String number) {
-        if (name == null || number == null|| name.isEmpty() || number.isEmpty()) {
+        if (name == null || number == null || name.isEmpty() || number.isEmpty()) {
             System.out.println("Oшибка! Имя контакта и номер должны быть заполнены!");
         } else {
             if (number.length() != 11) {
@@ -18,13 +17,16 @@ public class PhoneBook {
                     System.out.println("Ошибка! Контакт с таким именем уже существует!");
                 } else {
                     contacts.put(name, number);
-                    size++;
                 }
             }
         }
 
-        return size;
+        return contacts.size();
 
+    }
+
+    public static String findByNumber(String value) {
+        return null;
     }
 
 }
